@@ -4,7 +4,7 @@
 
 # SIMPLE_CLIPBOARD
 
-**[Documentation](https://ljr1981.github.io/simple_clipboard/)**
+**[Documentation](https://simple-eiffel.github.io/simple_clipboard/)**
 
 ### Windows Clipboard Access Library for Eiffel
 
@@ -43,7 +43,7 @@ The library supports reading and writing text to the clipboard, checking clipboa
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ljr1981/simple_clipboard.git
+git clone https://github.com/simple-eiffel/simple_clipboard.git
 ```
 
 2. Compile the C library:
@@ -209,8 +209,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Contact
 
 - **Author:** Larry Rix
-- **Repository:** https://github.com/ljr1981/simple_clipboard
-- **Issues:** https://github.com/ljr1981/simple_clipboard/issues
+- **Repository:** https://github.com/simple-eiffel/simple_clipboard
+- **Issues:** https://github.com/simple-eiffel/simple_clipboard/issues
 
 ---
 
