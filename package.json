@@ -1,0 +1,9 @@
+{
+  "name": "simple_clipboard",
+  "version": "0.1.0",
+  "description": "Simple Clipboard Library - SCOOP-compatible with inline C",
+  "author": "Larry Rix",
+  "license": "MIT",
+  "category": "platform",
+  "keywords": ["clipboard", "copy", "paste", "system"]
+}
