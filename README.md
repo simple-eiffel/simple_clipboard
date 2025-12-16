@@ -15,12 +15,12 @@ SCOOP-compatible clipboard access for Windows applications using inline Win32 AP
 Add to your ECF file:
 
 ```xml
-<library name="simple_clipboard" location="$SIMPLE_CLIPBOARD/simple_clipboard.ecf"/>
+<library name="simple_clipboard" location="$SIMPLE_EIFFEL/simple_clipboard/simple_clipboard.ecf"/>
 ```
 
-Set the environment variable:
+Set the environment variable (one-time setup for all simple_* libraries):
 ```
-SIMPLE_CLIPBOARD=/path/to/simple_clipboard
+SIMPLE_EIFFEL=D:\prod
 ```
 
 ## Quick Start
