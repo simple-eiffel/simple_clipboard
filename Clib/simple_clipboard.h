@@ -3,6 +3,7 @@
  *
  * Windows: Uses Win32 Clipboard API
  * Linux: Uses xclip (X11) or wl-copy/wl-paste (Wayland)
+ * macOS: Uses pbcopy/pbpaste, part of the system
  *
  * Following Eric Bezault's recommended pattern: implementations in .h file,
  * called from Eiffel inline C with use directive.
@@ -152,8 +153,11 @@ static int scb_command_exists(const char* cmd) {
     return system(check) == 0;
 }
 
-/* Detect clipboard backend: 0=none, 1=xclip, 2=wl-clipboard */
+/* Detect clipboard backend: 0=none, 1=xclip, 2=wl-clipboard, 3=xsel, 4=macOS */
 static int scb_detect_backend(void) {
+#ifdef __APPLE__
+    return 4;
+#endif
     /* Check for Wayland first */
     if (getenv("WAYLAND_DISPLAY") != NULL) {
         if (scb_command_exists("wl-copy") && scb_command_exists("wl-paste")) {
@@ -189,6 +193,7 @@ static char* scb_get_text(void) {
         case 1: cmd = "xclip -selection clipboard -o 2>/dev/null"; break;
         case 2: cmd = "wl-paste -n 2>/dev/null"; break;
         case 3: cmd = "xsel --clipboard --output 2>/dev/null"; break;
+        case 4: cmd = "LC_CTYPE=UTF-8 pbpaste 2>/dev/null"; break;
         default: return NULL;
     }
 
@@ -243,6 +248,7 @@ static int scb_set_text(const char* text) {
         case 1: cmd = "xclip -selection clipboard 2>/dev/null"; break;
         case 2: cmd = "wl-copy 2>/dev/null"; break;
         case 3: cmd = "xsel --clipboard --input 2>/dev/null"; break;
+        case 4: cmd = "LC_CTYPE=UTF-8 pbcopy 2>/dev/null"; break;
         default: return 0;
     }
 
