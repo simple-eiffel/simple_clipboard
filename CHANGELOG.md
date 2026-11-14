@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Unicode text: `set_text` no longer fails a precondition on text outside 8 bits; text travels as UTF-8 on every platform and as CF_UNICODETEXT on Windows, so Hebrew and emoji round-trip
+- Windows `is_empty` and `format_count` no longer report an empty clipboard when another program holds it open
+- Tests no longer pass when the clipboard cannot be reached; `test_clear_clipboard` checks the clipboard is empty
+
+### Added
+- `is_available`, `backend_name` and `unavailable_reason`: a Linux session with no display or no clipboard tool says so
+
 ### Changed
 - Post-session update 2025-12-08 20:52
 - Post-session update 2025-12-08 20:45
