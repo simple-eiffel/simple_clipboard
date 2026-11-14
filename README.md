@@ -69,6 +69,11 @@ end
 | `copy_text (str)` | Alias for set_text |
 | `paste` | Alias for text |
 | `format_count` | Number of formats on clipboard (macOS/Linux: 1 if text, else 0) |
+| `is_available` | Is there a clipboard to reach? Always on Windows and macOS; on Linux it takes a display and a clipboard tool |
+| `unavailable_reason` | Why there is none (empty when `is_available`) |
+| `backend_name` | What reaches the clipboard: `win32`, `pbcopy`, `wl-clipboard`, `xclip`, `xsel`, or `none` |
+
+Text is Unicode on every platform (Hebrew, Greek and emoji round-trip). The tests set and read the real clipboard, restoring its text afterwards, and fail when it can't be reached.
 
 ## Documentation
 
