@@ -68,6 +68,17 @@ end</code></pre>
                 <tr><td><code>last_operation_succeeded: BOOLEAN</code></td><td>Status of last operation</td></tr>
             </table>
         </section>
+
+        <section id="platforms">
+            <h2>Platforms</h2>
+            <p>Tested on Windows, Linux and macOS (see the README's badges).</p>
+            <ul>
+                <li><strong>Windows</strong> - Win32 clipboard API</li>
+                <li><strong>macOS</strong> - text through <code>pbcopy</code>/<code>pbpaste</code>; <code>clear</code> sets empty text</li>
+                <li><strong>Linux</strong> - text through <code>wl-copy</code>/<code>wl-paste</code> (Wayland), else <code>xclip</code> or <code>xsel</code> (X11). Needs a display and one of these tools; without them every call fails.</li>
+            </ul>
+        </section>
+
     </main>
 
     <footer>
